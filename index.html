@@ -2,12 +2,14 @@
 <html lang="id">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#1768e8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="DIGIVO menyediakan jasa teknologi, kreatif, dokumen, dan kebutuhan digital dalam satu tempat.">
   <title>DIGIVO — Banyak kebutuhan, satu tempat</title>
   <link rel="icon" href="assets/digivo-logo.jpg">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
   <div class="cosmos" aria-hidden="true">
@@ -27,35 +29,41 @@
       <a href="#cara-pesan">Cara pesan</a>
       <a href="#tentang">Tentang</a>
       <a href="#faq">FAQ</a>
+      <a class="nav-wa" id="navWhatsapp" href="#"><span data-icon="whatsapp" aria-hidden="true"></span>Chat via WhatsApp</a>
     </nav>
-    <a class="button button-dark header-cta" href="#layanan"><span>Jelajahi layanan</span><i class="btn-arrow" aria-hidden="true">↗</i></a>
+    <a class="button button-dark header-cta" id="headerWhatsapp" href="#"><span>Chat WhatsApp</span><i class="btn-arrow" data-icon="whatsapp" aria-hidden="true"></i></a>
     <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">☰</button>
   </header>
 
   <main>
     <section class="hero">
+      <div class="hero-floor" aria-hidden="true"></div>
       <div class="hero-copy">
         <div class="eyebrow"><span class="status-dot"></span> TEMAN KEBUTUHAN DIGITALMU</div>
-        <h1>Banyak kebutuhan.<br><span>Satu tempat.</span></h1>
-        <p class="hero-description">berbagai kebutuhan teknologi dan kreatif dalam satu platform. pilih layanan,diskusikan kebutuhan, dan mulai bersama digivo</p>
+        <h1><span class="line"><span>Banyak kebutuhan.</span></span><span class="line accent"><span>Satu tempat.</span></span></h1>
+        <p class="hero-description">Berbagai kebutuhan teknologi dan kreatif dalam satu platform. Pilih layanan, diskusikan kebutuhan, dan mulai bersama DIGIVO.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#layanan"><span>Cari layanan</span><i class="btn-arrow" aria-hidden="true">↘</i></a>
-          <a class="button button-ghost" href="#cara-pesan"><span>Lihat cara pesan</span><i class="btn-arrow" aria-hidden="true">→</i></a>
+          <a class="button button-ghost" id="heroWhatsapp" href="#"><span>Chat WhatsApp</span><i class="btn-arrow" data-icon="whatsapp" aria-hidden="true"></i></a>
         </div>
         <div class="hero-note"><span class="note-dot" aria-hidden="true"></span> Online dan offline · Pesan langsung via WhatsApp</div>
       </div>
-      <div class="hero-art" aria-label="Ilustrasi kategori layanan DIGIVO">
-        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
-        <div class="art-card card-main"><div class="fake-window"><i></i><i></i><i></i></div><div class="screen-symbol">D<span>▶</span></div><div class="screen-lines"><b></b><i></i><i></i></div><div class="screen-tag">DIGITAL, MADE SIMPLE</div></div>
-        <div class="float-card float-top"><span class="float-icon blue" data-icon="monitor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><div><b>Tech support</b><small>PC · HP · Web</small></div><span class="float-check">✓</span></div>
-        <div class="float-card float-bottom"><span class="float-icon yellow" data-icon="pen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span><div><b>Creative service</b><small>Dokumen · Konten</small></div></div>
+      <div class="hero-art" id="heroArt" aria-label="Ilustrasi kategori layanan DIGIVO">
+        <div class="scene">
+          <canvas class="globe-canvas globe-back" id="globeBack" aria-hidden="true"></canvas>
+          <div class="art-card card-main"><div class="fake-window"><i></i><i></i><i></i></div><div class="screen-symbol">D<span>▶</span></div><div class="screen-lines"><b></b><i></i><i></i></div><div class="screen-tag">DIGITAL, MADE SIMPLE</div></div>
+          <canvas class="globe-canvas globe-front" id="globeFront" aria-hidden="true"></canvas>
+          <div class="float-card float-top"><span class="float-icon blue" data-icon="monitor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><div><b>Tech support</b><small>PC · HP · Web</small></div><span class="float-check">✓</span></div>
+          <div class="float-card float-bottom"><span class="float-icon navy" data-icon="pen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span><div><b>Creative service</b><small>Dokumen · Konten</small></div></div>
+          <div class="float-card float-pill"><span class="live-dot" aria-hidden="true"></span>Chat via WhatsApp</div>
+        </div>
       </div>
     </section>
 
     <section class="trust-strip" aria-label="Keunggulan utama DIGIVO">
       <div class="trust-item">
         <span class="strip-icon" data-icon="zap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
-        <span><b>Praktis</b><small>Berbagai Kebutuhan</small></span>
+        <span><b>Praktis</b><small>Berbagai kebutuhan</small></span>
       </div>
       <div class="trust-item">
         <span class="strip-icon" data-icon="grid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1.5"/><rect width="7" height="7" x="14" y="3" rx="1.5"/><rect width="7" height="7" x="14" y="14" rx="1.5"/><rect width="7" height="7" x="3" y="14" rx="1.5"/></svg></span>
@@ -63,8 +71,12 @@
       </div>
       <div class="trust-item">
         <span class="strip-icon" data-icon="heart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>
-        <span><b>terarah</b><small>diskusi sesuai kebutuhan</small></span>
+        <span><b>Terarah</b><small>Diskusi sesuai kebutuhan</small></span>
       </div>
+    </section>
+
+    <section class="marquee" aria-label="Contoh layanan DIGIVO">
+      <div class="marquee-track" id="marqueeTrack"></div>
     </section>
 
     <section class="services section" id="layanan">
@@ -77,9 +89,9 @@
         <div class="filter-row" id="filterRow" aria-label="Filter kategori">
           <button class="filter-chip active" data-filter="all">Semua</button>
           <button class="filter-chip" data-filter="teknologi">Teknologi</button>
-          <button class="filter-chip" data-filter="sekolah">Sekolah & dokumen</button>
-          <button class="filter-chip" data-filter="kreatif">Kreatif & web</button>
-          <button class="filter-chip" data-filter="bisnis">Bisnis & digital</button>
+          <button class="filter-chip" data-filter="sekolah">Sekolah &amp; dokumen</button>
+          <button class="filter-chip" data-filter="kreatif">Kreatif &amp; web</button>
+          <button class="filter-chip" data-filter="bisnis">Bisnis &amp; digital</button>
         </div>
       </div>
       <div class="service-grid" id="serviceGrid"></div>
@@ -112,10 +124,10 @@
             </div>
           </div>
           <div class="flow-widget flow-tags" aria-label="Filter cepat kategori">
-            <button type="button" class="mini-pill" data-quick-filter="teknologi"><span>Instalasi & PC</span><i>→</i></button>
-            <button type="button" class="mini-pill" data-quick-filter="sekolah"><span>Makalah & PPT</span><i>→</i></button>
-            <button type="button" class="mini-pill" data-quick-filter="kreatif"><span>Video & Website</span><i>→</i></button>
-            <button type="button" class="mini-pill" data-quick-filter="bisnis"><span>Sosmed & Digital</span><i>→</i></button>
+            <button type="button" class="mini-pill" data-quick-filter="teknologi"><span>Instalasi &amp; PC</span><i>→</i></button>
+            <button type="button" class="mini-pill" data-quick-filter="sekolah"><span>Makalah &amp; PPT</span><i>→</i></button>
+            <button type="button" class="mini-pill" data-quick-filter="kreatif"><span>Video &amp; Website</span><i>→</i></button>
+            <button type="button" class="mini-pill" data-quick-filter="bisnis"><span>Sosmed &amp; Digital</span><i>→</i></button>
           </div>
         </article>
 
@@ -128,13 +140,13 @@
           <div class="flow-head">
             <div class="step-icon" data-icon="chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg></div>
             <div>
-              <h3>Diskusi & cek estimasi di awal</h3>
+              <h3>Diskusi &amp; cek estimasi di awal</h3>
               <p>Ngobrol santai via WhatsApp. Rincian harga, cakupan, dan waktu selesai dijelaskan transparan sebelum mulai.</p>
             </div>
           </div>
           <div class="flow-widget flow-chat-preview" aria-hidden="true">
             <div class="chat-bubble user-bubble">Kak, bantu rapikan makalah + slide PPT buat besok bisa?</div>
-            <div class="chat-bubble bot-bubble"><span>✓</span> Bisa! Ini rincian biaya & estimasi jam selesainya ya.</div>
+            <div class="chat-bubble bot-bubble"><span>✓</span> Bisa! Ini rincian biaya &amp; estimasi jam selesainya ya.</div>
           </div>
         </article>
 
@@ -147,16 +159,16 @@
           <div class="flow-head">
             <div class="step-icon" data-icon="zap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
             <div>
-              <h3>Dikerjakan & pantau progres</h3>
+              <h3>Dikerjakan &amp; pantau progres</h3>
               <p>Begitu sepakat, tim langsung eksekusi. Kamu bisa pantau perkembangan dan ajukan revisi sesuai kesepakatan.</p>
             </div>
           </div>
           <div class="flow-widget flow-tracker" id="flowTracker" aria-hidden="true">
-            <div class="track-node done" data-stage="0"><span class="dot">✓</span><small>Brief & Bahan</small></div>
+            <div class="track-node done" data-stage="0"><span class="dot">✓</span><small>Brief &amp; Bahan</small></div>
             <div class="track-line active-line"></div>
             <div class="track-node active" data-stage="1"><span class="dot pulse-dot"></span><small>Dikerjakan</small></div>
             <div class="track-line"></div>
-            <div class="track-node" data-stage="2"><span class="dot">3</span><small>Cek & Revisi</small></div>
+            <div class="track-node" data-stage="2"><span class="dot">3</span><small>Cek &amp; Revisi</small></div>
           </div>
         </article>
 
@@ -169,7 +181,7 @@
           <div class="flow-head">
             <div class="step-icon" data-icon="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></div>
             <div>
-              <h3>Selesai rapi & siap digunakan</h3>
+              <h3>Selesai rapi &amp; siap digunakan</h3>
               <p>Hasil akhir dikirim tepat waktu atau perangkat siap diambil. Ada kendala? Tim siap bantu sampai tuntas.</p>
             </div>
           </div>
@@ -183,12 +195,13 @@
       <div class="order-perks" aria-label="Jaminan layanan DIGIVO">
         <div class="perk-pill"><span>✓</span> Tanya-tanya dulu 100% gratis</div>
         <div class="perk-pill"><span>✓</span> Harga dikunci sebelum pengerjaan</div>
-        <div class="perk-pill"><span>✓</span> Bisa online & ketemu langsung (offline)</div>
-        <div class="perk-pill"><span>✓</span> Privasi dokumen & perangkat terjaga</div>
+        <div class="perk-pill"><span>✓</span> Bisa online &amp; ketemu langsung (offline)</div>
+        <div class="perk-pill"><span>✓</span> Privasi dokumen &amp; perangkat terjaga</div>
       </div>
     </section>
 
     <section class="about-band" id="tentang">
+      <canvas class="about-planet" id="aboutPlanet" aria-hidden="true"></canvas>
       <div class="about-mark">D<span>▶</span></div>
       <div><div class="eyebrow light-eyebrow">KENALAN DENGAN DIGIVO</div><h2>Satu tempat untuk<br>berbagai kebutuhan.</h2><p>Jasa teknologi, kreatif, dokumen, dan produk digital dengan proses yang simpel dan komunikasi yang jelas.</p></div>
       <a class="button button-light" id="aboutWhatsapp" href="#"><span>Tanya dulu aja</span><i class="btn-arrow" aria-hidden="true">↗</i></a>
@@ -211,6 +224,12 @@
     <p class="privacy-note" id="privacyNote">Informasi layanan dan harga dikonfirmasi sebelum pengerjaan. Jangan kirim kata sandi atau data sensitif melalui formulir pesan.</p>
   </footer>
 
+  <!-- Tombol WhatsApp melayang (muncul setelah melewati hero) -->
+  <a class="wa-fab" id="fabWhatsapp" href="#" aria-label="Chat DIGIVO via WhatsApp">
+    <span class="wa-fab-icon" data-icon="whatsapp" aria-hidden="true"></span>
+    <span class="wa-fab-label">Chat via WhatsApp</span>
+  </a>
+
   <dialog id="serviceDialog" class="service-dialog">
     <button class="dialog-close" id="dialogClose" aria-label="Tutup detail">×</button>
     <div class="dialog-icon" id="dialogIcon"></div>
@@ -223,7 +242,8 @@
     <p class="dialog-note">Detail, ketersediaan, dan harga akhir akan dikonfirmasi melalui WhatsApp sebelum pengerjaan.</p>
     <a class="button button-primary button-wide" id="dialogWhatsapp" href="#"><span>Tanya layanan ini via WhatsApp</span><i class="btn-arrow" aria-hidden="true">↗</i></a>
   </dialog>
-  <script src="cosmos.js?v=4"></script>
-  <script src="app.js?v=4"></script>
+  <script src="cosmos.js?v=5"></script>
+  <script src="app.js?v=5"></script>
+  <script src="scene3d.js?v=5"></script>
 </body>
 </html>
