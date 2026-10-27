@@ -1,5 +1,5 @@
 // DIGIVO frontend prototype. Replace this placeholder with the official business WhatsApp number before launch.
-const WHATSAPP_NUMBER = "6289519497188"; // Example only. Use country code without +, spaces, or leading 0.
+const WHATSAPP_NUMBER = "6289519497184"; // Example only. Use country code without +, spaces, or leading 0.
 
 // Ikon garis (gaya Lucide, ISC license) — dipilih sesuai konteks tiap layanan, dengan garis tegas (stroke 2.1).
 const svg = inner => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
