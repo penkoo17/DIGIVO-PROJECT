@@ -1,7 +1,5 @@
 // DIGIVO frontend prototype. Replace this placeholder with the official business WhatsApp number before launch.
-const WHATSAPP_NUMBER = "6289519497188"; // Example only. Use country code without +, spaces, or leading 0.
-
-// Ikon garis (gaya Lucide, ISC license) — dipilih sesuai konteks tiap layanan, dengan garis tegas (stroke 2.1).
+const WHATSAPP_NUMBER = "6289519497188";
 const svg = inner => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
 const ICONS = {
   // Katalog
@@ -17,6 +15,16 @@ const ICONS = {
   megaphone: svg('<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>'),
   sim: svg('<path d="M14.172 2a2 2 0 0 1 1.414.586l3.828 3.828A2 2 0 0 1 20 7.828V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><rect x="8" y="10" width="8" height="8" rx="1"/><path d="M12 10v8M8 14h8"/>'),
   crown: svg('<path d="m2 6 4 11h12l4-11-6 5-4-7-4 7-6-5z"/><path d="M6 21h12"/>'),
+  gauge: svg('<path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/>'),
+  keyboard: svg('<path d="M10 8h.01M12 12h.01M14 8h.01M16 12h.01M18 8h.01M6 8h.01M7 16h10M8 12h.01"/><rect width="20" height="16" x="2" y="4" rx="2"/>'),
+  image: svg('<rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>'),
+  book: svg('<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>'),
+  spellcheck: svg('<path d="m6 16 6-12 6 12"/><path d="M8 12h8"/><path d="m16 20 2 2 4-4"/>'),
+  trending: svg('<path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/>'),
+  palette: svg('<circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>'),
+  fileconvert: svg('<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M8 15h8"/><path d="m13 12 3 3-3 3"/>'),
+  gamepad: svg('<path d="M6 11h4M8 9v4M15 12h.01M18 10h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>'),
+  laptop: svg('<path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/>'),
   // UI umum
   search: svg('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>'),
   chat: svg('<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01M12 12h.01M16 12h.01"/>'),
@@ -29,18 +37,55 @@ const ICONS = {
 };
 
 const services = [
-  {id:1,title:"Instalasi & Windows optimizer",category:"teknologi",label:"PC & teknologi",icon:"windows",price:"Tanya harga",desc:"Install ulang bebas request, optimize for better performance.",includes:["Pemeriksaan kebutuhan dan spesifikasi PC","Ruang lingkup serta harga dikonfirmasi sebelum pengerjaan","Gunakan sistem operasi dan lisensi yang sah"]},
-  {id:2,title:"Ketik & dokumen",category:"sekolah",label:"Dokumen",icon:"document",price:"Harga sesuai dokumen",desc:"Bantuan mengetik dan merapikan CV, surat lamaran, serta dokumen umum.",includes:["Format dokumen sesuai kebutuhan","Revisi berdasarkan kesepakatan","Dokumen akhir dikonfirmasi sebelum penyerahan"]},
-  {id:3,title:"Bimbingan & bantuan belajar",category:"sekolah",label:"Pendidikan",icon:"graduation",price:"Tanya harga",desc:"joki tugas semua mapel, ajarin mapel sampe paham.",includes:["Materi disesuaikan dengan kebutuhan","Fokus membantu memahami konsep","Tugas dinilai tetap mengikuti aturan sekolah"]},
-  {id:4,title:"Makalah, PPT & karya kreatif",category:"sekolah",label:"Tugas kreatif",icon:"presentation",price:"Harga sesuai kebutuhan",desc:"Bantuan menata presentasi, makalah, olah data, scrapbook, mading, dan kliping.",includes:["Tentukan tema, format, dan tenggat","Ruang lingkup dikonfirmasi sebelum mulai","Materi dan sumber perlu diperiksa bersama"]},
-  {id:5,title:"Edit video",category:"kreatif",label:"Kreatif",icon:"video",price:"Tanya harga",desc:"Editing video tugas sekolah, konten, atau promosi sesuai request.",includes:["Kirim contoh gaya dan bahan yang tersedia","Durasi dan jumlah revisi disepakati","Gunakan aset yang memiliki izin penggunaan"]},
-  {id:6,title:"Pembuatan website",category:"kreatif",label:"Web & coding",icon:"website",price:"Tanya harga",desc:"Landing page, undangan digital, portofolio, web komunitas, dan website sesuai kebutuhan.",includes:["Diskusi tujuan dan fitur","Domain dan hosting dijelaskan terpisah bila berbayar","Ruang lingkup serta jadwal disepakati"]},
-  {id:7,title:"Jasa Oprek Hp",category:"teknologi",label:"HP & Android",icon:"phone",price:"Tanya harga",desc:"oprek semua merk hp, bebas request.",includes:["Kepemilikan perangkat harus dapat dipastikan","Risiko kehilangan data dan garansi dibahas dahulu","Tidak melayani bypass keamanan perangkat milik orang lain"]},
-  {id:8,title:"Admin media sosial",category:"bisnis",label:"Media sosial",icon:"social",price:"Paket sesuai kebutuhan",desc:"Bantuan menyusun jadwal posting, membalas pesan, dan mengelola konten akun.",includes:["Peran dan jam kerja disepakati","Akses akun diberikan dengan aman","Tidak meminta atau menyimpan kata sandi lewat chat publik"]},
-  {id:9,title:"Pembukuan sederhana",category:"bisnis",label:"UMKM",icon:"calculator",price:"Tanya harga",desc:"Pembuatan format pembukuan sederhana menggunakan spreadsheet.",includes:["Sesuaikan kolom dengan kebutuhan usaha","Contoh data dapat digunakan saat konsultasi","Data keuangan pelanggan dijaga kerahasiaannya"]},
-  {id:10,title:"Promosi media sosial",category:"bisnis",label:"Pertumbuhan akun",icon:"megaphone",price:"Tanya harga",desc:"suntik folowers semua sosmed.",includes:["Metode dan sumber layanan dijelaskan sebelum transaksi","Tidak menjamin angka atau hasil tertentu","Hindari bot atau interaksi palsu yang melanggar ketentuan platform"]},
-  {id:11,title:"jual nomor kosong",category:"bisnis",label:"Produk digital",icon:"sim",price:"Cek ketersediaan",desc:"sedia nokos, whatsap,telegram,gojek,dana dll.",includes:["Ketersediaan diperiksa sebelum pembayaran","Sumber dan ketentuan produk harus jelas","Tidak melayani penggunaan nomor untuk penipuan atau mengakali verifikasi"]},
-  {id:12,title:"Aplikasi & langganan premium",category:"bisnis",label:"Langganan digital",icon:"crown",price:"Cek paket dan harga",desc:"semua app premium. spotify, netflix,youtube,dll.",includes:["Paket, masa aktif, dan metode aktivasi dijelaskan","Ketersediaan dan harga dikonfirmasi dahulu","Tidak menjual akses yang diperoleh secara tidak sah"]}
+  {id:1,title:"Install ulang Windows",category:"teknologi",label:"PC & teknologi",icon:"windows",price:"Rp50.000",desc:"Install ulang Windows plus aplikasi dasar, langsung siap dipakai.",
+    prices:[["Install ulang Windows + aplikasi dasar","Rp50.000"]],
+    includes:["Pemeriksaan kebutuhan dan spesifikasi PC","Daftar aplikasi dasar dikonfirmasi sebelum pengerjaan","Backup data penting dibahas dahulu","Gunakan sistem operasi dan lisensi yang sah"]},
+  {id:2,title:"Windows optimizer",category:"teknologi",label:"PC & teknologi",icon:"gauge",price:"Rp35.000",desc:"Bikin Windows lebih ringan dan responsif untuk kerja maupun main game.",
+    prices:[["GIVO OPTIMIZER","Rp35.000"]],
+    includes:["Cek kondisi PC sebelum optimasi","Perubahan yang dilakukan dijelaskan","Hasil performa tergantung spesifikasi perangkat"]},
+  {id:3,title:"Jasa ketik dokumen",category:"sekolah",label:"Dokumen",icon:"keyboard",price:"Mulai Rp10.000",desc:"Ketik dan rapikan CV, resume, artikel, dan dokumen umum lainnya.",
+    prices:[["CV","Rp25.000"],["Resume","Rp10.000"],["Artikel","Rp35.000"],["Dokumen lainnya","Tanya dulu"]],
+    includes:["Format dokumen sesuai kebutuhan","Revisi berdasarkan kesepakatan","Dokumen akhir dikonfirmasi sebelum penyerahan"]},
+  {id:4,title:"Joki tugas sekolah",category:"sekolah",label:"Tugas sekolah",icon:"graduation",price:"Mulai Rp1.500",desc:"Bantu kerjakan PPT, makalah, scrapbook, dan tugas SMA/SMK semua mapel.",
+    prices:[["PPT","Rp1.500/slide","Materi dari DIGIVO +Rp5.000"],["Makalah","Rp35.000"],["Scrapbook","Rp35.000"],["Tugas SMA/SMK (semua mapel)","Rp5.000/soal"],["Tugas lainnya","Tanya dulu"]],
+    priceNote:"Contoh PPT 4 slide dengan materi dari DIGIVO: (4 × Rp1.500) + Rp5.000 = Rp11.000.",
+    includes:["Tentukan mapel, format, dan tenggat","Ruang lingkup dikonfirmasi sebelum mulai","Hasil dipakai sebagai bahan belajar dan tetap mengikuti aturan sekolah"]},
+  {id:5,title:"Jasa edit",category:"kreatif",label:"Kreatif",icon:"image",price:"Mulai Rp3.000",desc:"Edit poster, foto, dan video untuk tugas, konten, atau promosi.",
+    prices:[["Poster","Mulai Rp5.000"],["Foto","Mulai Rp3.000"],["Video","Mulai Rp10.000"],["Edit lainnya","Tanya dulu"]],
+    includes:["Kirim contoh gaya dan bahan yang tersedia","Durasi dan jumlah revisi disepakati","Gunakan aset yang memiliki izin penggunaan"]},
+  {id:6,title:"Buat website",category:"kreatif",label:"Web & coding",icon:"website",price:"Mulai Rp50.000",desc:"Landing page, undangan digital, portofolio, web sekolah, dan website sesuai request.",
+    prices:[["Landing page UMKM (1 halaman)","Rp50.000–100.000"],["Web undangan digital","Rp50.000–125.000"],["Web portofolio","Rp50.000–125.000"],["Web sekolah / komunitas","Rp150.000–350.000"],["Web sesuai request","Mulai Rp100.000"]],
+    includes:["Diskusi tujuan dan fitur","Domain dan hosting dijelaskan terpisah bila berbayar","Ruang lingkup serta jadwal disepakati"]},
+  {id:7,title:"Modifikasi & service HP",category:"teknologi",label:"HP & Android",icon:"phone",price:"Mulai Rp25.000",desc:"Unlock bootloader, root, custom recovery, custom ROM, sampai HP lupa sandi.",
+    prices:[["Unlock bootloader","Rp25.000"],["Root","Rp30.000"],["Pasang custom recovery","Rp45.000"],["Pasang ROM port / custom","Rp85.000"],["Relock bootloader","Rp25.000"],["Lupa sandi, pola, atau PIN","Rp50.000"],["Paketan oprek lengkap","Rp200.000","Oprek untuk game, baterai hemat, dan upgrade versi Android jika HP tidak support Android terbaru"]],
+    includes:["Kepemilikan perangkat harus dapat dipastikan","Risiko kehilangan data dan garansi dibahas dahulu","Tidak melayani bypass keamanan perangkat milik orang lain"]},
+  {id:8,title:"Admin media sosial",category:"bisnis",label:"Media sosial",icon:"social",price:"Mulai Rp2.000",desc:"Upload postingan, caption, desain konten, sampai kelola akun bulanan.",
+    prices:[["Upload postingan dari materi pelanggan","Rp2.000/postingan"],["Caption sederhana","Rp2.000–5.000/postingan"],["Desain postingan sederhana","Rp5.000–10.000/desain"],["Paket 12 postingan / bulan","Rp60.000–100.000"],["Paket 20 postingan / bulan","Rp100.000–175.00０"],["Admin akun sederhana","Rp150.₀₀₀–3₀₀.₀₀₀/bulan"]],
+    includes:["Peran dan jam kerja disepakati","Akses akun diberikan dengan aman","Tidak meminta atau menyimpan kata sandi lewat chat publik"]},
+  {id:9,title:"Jasa pembukuan UMKM",category:"bisnis",label:"UMKM",icon:"calculator",price:"Mulai Rp10.000",desc:"Catat keuangan usaha, rekap transaksi, template Excel, sampai laporan laba-rugi.",
+    prices:[["Catat pemasukan & pengeluaran sederhana","Rp10.000–20.000"],["Rekap transaksi 1 minggu","Rp15.000–30.000"],["Rekap transaksi 1 bulan","Rp40.000–100.000"],["Template pembukuan Excel","Rp15.000–35.000"],["Laporan laba-rugi sederhana","Rp20.000–40.000"],["Paket pembukuan UMKM bulanan","Rp75.000–150.000"]],
+    includes:["Sesuaikan kolom dengan kebutuhan usaha","Contoh data dapat digunakan saat konsultasi","Data keuangan pelanggan dijaga kerahasiaannya"]},
+  {id:10,title:"Jasa ringkas",category:"sekolah",label:"Ringkasan",icon:"book",price:"Mulai Rp3.000",desc:"Ringkas buku, file, HVS, doublepolio, sampai video atau VN jadi catatan rapi.",
+    prices:[["Buku biasa","Mulai Rp3.000/hal"],["Buku cetak / file","Mulai Rp6.000/hal"],["HVS (A4/F4)","Mulai Rp8.000/hal"],["Doublepolio","Mulai Rp8.000/hal"],["Video / VN","Mulai Rp3.000/menit"]],
+    includes:["Kirim bahan dan tenggat pengerjaan","Tingkat kelengkapan ringkasan disepakati","Harga akhir menyesuaikan kerumitan bahan"]},
+  {id:11,title:"Jasa revisi tugas",category:"sekolah",label:"Revisi",icon:"spellcheck",price:"Mulai Rp3.000",desc:"Perbaiki typo, kalimat, format Word, dan struktur tulisan tugasmu.",
+    prices:[["Koreksi typo dan ejaan","Rp3.000–5.000"],["Perbaikan kalimat agar lebih jelas","Rp5.000–10.000"],["Rapikan format Microsoft Word","Rp5.000–15.000"],["Rapikan makalah sederhana","Rp10.000–20.000"],["Perbaikan struktur dan alur tulisan","Rp10.000–25.000"],["Revisi dokumen panjang","Mulai Rp25.000"]],
+    includes:["Kirim file asli beserta catatan revisi","Isi dan maksud tulisan tetap milikmu","Hasil revisi dikonfirmasi sebelum penyerahan"]},
+  {id:12,title:"Suntik sosmed",category:"bisnis",label:"Pertumbuhan akun",icon:"trending",price:"Harga fleksibel",priceFull:"Harga bisa naik turun · tanya harga terbaru",desc:"Tambah followers, likes, share, dan comment untuk berbagai platform.",
+    tags:["Instagram","YouTube","WhatsApp","X","TikTok","Facebook","Dan lain-lain"],
+    includes:["Metode dan sumber layanan dijelaskan sebelum transaksi","Tidak menjamin angka atau hasil tertentu","Hindari bot atau interaksi palsu yang melanggar ketentuan platform"]},
+  {id:13,title:"Jual nokos",category:"bisnis",label:"Produk digital",icon:"sim",price:"Harga fleksibel",priceFull:"Harga bisa naik turun · cek ketersediaan",desc:"Nomor kosong untuk WhatsApp, Telegram, dan semua aplikasi.",
+    tags:["WhatsApp","Telegram","Semua aplikasi"],
+    includes:["Ketersediaan diperiksa sebelum pembayaran","Sumber dan ketentuan produk harus jelas","Tidak melayani penggunaan nomor untuk penipuan atau mengakali verifikasi"]},
+  {id:14,title:"Aplikasi & akun premium",category:"bisnis",label:"Langganan digital",icon:"crown",price:"Harga fleksibel",priceFull:"Harga bisa naik turun · cek paket dan harga",desc:"Akun dan aplikasi premium favoritmu, dari streaming sampai desain.",
+    tags:["Netflix","Spotify","YouTube","Amazon","Canva","Dan lain-lain"],
+    includes:["Paket, masa aktif, dan metode aktivasi dijelaskan","Ketersediaan dan harga dikonfirmasi dahulu","Tidak menjual akses yang diperoleh secara tidak sah"]},
+  /* Layanan baru */
+  {id:15,title:"Desain logo & branding",category:"kreatif",label:"Desain",icon:"palette",price:"Tanya harga",desc:"Logo, banner, dan identitas visual sederhana untuk usaha atau komunitas.",
+    includes:["Diskusi nama usaha, warna, dan gaya yang diinginkan","Jumlah revisi disepakati di awal","File akhir dikirim sesuai format yang dibutuhkan"]},
+  {id:16,title:"Convert & olah file",category:"sekolah",label:"Dokumen",icon:"fileconvert",price:"Tanya harga",desc:"Ubah format PDF, Word, Excel, atau gambar, juga kompres dan gabung file.",
+    tags:["PDF","Word","Excel","Gambar"],
+    includes:["Kirim file dan format tujuan yang diinginkan","Tata letak dicek agar tetap rapi setelah diubah","Privasi file dijaga dan tidak disebarkan"]},
 ];
 
 const grid = document.getElementById("serviceGrid");
@@ -71,7 +116,7 @@ function filteredServices() {
   const q = searchInput.value.trim().toLowerCase();
   return services.filter(s => {
     const matchesFilter = activeFilter === "all" || s.category === activeFilter;
-    const haystack = `${s.title} ${s.label} ${s.desc}`.toLowerCase();
+    const haystack = `${s.title} ${s.label} ${s.desc} ${(s.tags || []).join(" ")} ${(s.prices || []).map(p => p[0]).join(" ")}`.toLowerCase();
     return matchesFilter && haystack.includes(q);
   });
 }
@@ -90,6 +135,23 @@ function renderServices() {
   grid.classList.toggle("hidden", list.length === 0);
 }
 
+function renderDialogDetails(s) {
+  const priceBox = document.getElementById("dialogPrice");
+  let extra = document.getElementById("dialogPriceList");
+  if (!extra) {
+    extra = document.createElement("div");
+    extra.id = "dialogPriceList";
+    priceBox.after(extra);
+  }
+  const rows = (s.prices || []).map(([name, value, sub]) => `
+    <li><div><span class="pl-name">${name}</span>${sub ? `<small>${sub}</small>` : ""}</div><b>${value}</b></li>`).join("");
+  const tags = (s.tags || []).map(t => `<span>${t}</span>`).join("");
+  extra.innerHTML =
+    (rows ? `<h3>Daftar harga</h3><ul class="price-list">${rows}</ul>` : "") +
+    (s.priceNote ? `<p class="price-note">${s.priceNote}</p>` : "") +
+    (tags ? `<h3>Tersedia untuk</h3><div class="tag-list">${tags}</div>` : "");
+}
+
 function openService(id) {
   const s = services.find(item => item.id === Number(id));
   if (!s) return;
@@ -97,7 +159,8 @@ function openService(id) {
   document.getElementById("dialogCategory").textContent = s.label.toUpperCase();
   document.getElementById("dialogTitle").textContent = s.title;
   document.getElementById("dialogDescription").textContent = s.desc;
-  document.getElementById("dialogPrice").textContent = s.price;
+  document.getElementById("dialogPrice").textContent = s.priceFull || s.price;
+  renderDialogDetails(s);
   document.getElementById("dialogIncludes").innerHTML = s.includes.map(item => `<li>${item}</li>`).join("");
   const msg = `Halo DIGIVO, saya ingin bertanya tentang layanan:\n\nLayanan: ${s.title}\nKebutuhan saya: [tuliskan kebutuhan]\n\nBoleh minta informasi harga, ketersediaan, dan prosesnya?`;
   const link = document.getElementById("dialogWhatsapp");
