@@ -1366,6 +1366,35 @@ button, a { -webkit-tap-highlight-color: transparent; }
   border-bottom: 1.5px solid var(--line);
 }
 .footer-brand img { width: 142px; height: 46px; }
+.button-channel { padding-left: 8px; gap: 10px; }
+.channel-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #3be57f 0%, #25d366 55%, #1ebe5b 100%);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.38), 0 0 0 4px rgba(37, 211, 102, 0.12);
+  flex-shrink: 0;
+  transition: transform 0.35s var(--ease-out);
+}
+.channel-icon svg { width: 16px; height: 16px; }
+.channel-icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid #25d366;
+  opacity: 0;
+  animation: channelPulse 2.6s ease-out infinite;
+}
+@keyframes channelPulse {
+  0% { transform: scale(1); opacity: 0.55; }
+  100% { transform: scale(1.65); opacity: 0; }
+}
+.button-channel:hover .channel-icon { transform: rotate(-8deg) scale(1.08); box-shadow: 0 6px 14px rgba(37, 211, 102, 0.5), 0 0 0 5px rgba(37, 211, 102, 0.16); }
+@media (prefers-reduced-motion: reduce) { .channel-icon::after { animation: none; } }
 .footer-top p { font-size: 13.5px; font-weight: 600; color: var(--muted); margin-right: auto; }
 .footer-bottom {
   display: flex;
