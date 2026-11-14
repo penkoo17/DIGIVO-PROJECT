@@ -281,36 +281,54 @@ const spySections = ["layanan", "cara-pesan", "tentang", "faq"]
 
 let manualExpand = false;
 let expandScrollY = 0;
+let cachedDocMax = 0;
+let cachedOffsets = [];
+let scrollTicking = false;
 
-function updateActiveNav() {
-  const y = window.scrollY + 180;
+function cacheLayoutMetrics() {
+  cachedDocMax = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  cachedOffsets = spySections.map(sec => ({ id: sec.id, top: sec.offsetTop }));
+}
+
+function updateActiveNav(sy) {
+  const y = sy + 180;
   let current = "";
-  for (let i = 0; i < spySections.length; i++) {
-    if (y >= spySections[i].offsetTop) current = spySections[i].id;
+  for (let i = 0; i < cachedOffsets.length; i++) {
+    if (y >= cachedOffsets[i].top) current = cachedOffsets[i].id;
   }
   navLinks.forEach(a => a.classList.toggle("active", a.dataset.nav === current));
   const dockTarget = current === "layanan" ? "layanan" : (current === "cara-pesan" || current === "tentang" || current === "faq") ? "cara-pesan" : "top";
   dockItems.forEach(d => d.classList.toggle("active", d.dataset.dock === dockTarget));
 }
 
-function onScroll() {
+function runScrollFrame() {
+  scrollTicking = false;
   const sy = window.scrollY || 0;
-  const max = document.documentElement.scrollHeight - window.innerHeight;
-  progress.style.transform = `scaleX(${max > 0 ? sy / max : 0})`;
-  header.classList.toggle("scrolled", sy > 18);
-
-  if (sy <= 65) {
-    manualExpand = false;
-    header.classList.remove("is-collapsed");
-  } else {
-    if (manualExpand && Math.abs(sy - expandScrollY) > 150) {
+  if (progress) {
+    progress.style.transform = `scaleX(${cachedDocMax > 0 ? Math.min(1, sy / cachedDocMax) : 0})`;
+  }
+  if (header) {
+    header.classList.toggle("scrolled", sy > 18);
+    if (sy <= 65) {
       manualExpand = false;
-    }
-    if (!manualExpand && !(desktopNav && desktopNav.classList.contains("open"))) {
-      header.classList.add("is-collapsed");
+      header.classList.remove("is-collapsed");
+    } else {
+      if (manualExpand && Math.abs(sy - expandScrollY) > 150) {
+        manualExpand = false;
+      }
+      if (!manualExpand && !(desktopNav && desktopNav.classList.contains("open"))) {
+        header.classList.add("is-collapsed");
+      }
     }
   }
-  updateActiveNav();
+  updateActiveNav(sy);
+}
+
+function onScroll() {
+  if (!scrollTicking) {
+    scrollTicking = true;
+    requestAnimationFrame(runScrollFrame);
+  }
 }
 
 if (brandLink && header) {
@@ -344,7 +362,16 @@ function triggerWaterTap(el, e) {
 });
 
 window.addEventListener("scroll", onScroll, { passive: true });
-onScroll();
+window.addEventListener("resize", () => {
+  cacheLayoutMetrics();
+  onScroll();
+}, { passive: true });
+window.addEventListener("load", () => {
+  cacheLayoutMetrics();
+  runScrollFrame();
+}, { once: true });
+cacheLayoutMetrics();
+runScrollFrame();
 
 /* ===== Smooth 60fps Lerp Parallax & 3D Tilt di Ilustrasi Hero (PC, HP, Tablet) ===== */
 const heroArt = document.querySelector(".hero-art");
@@ -403,7 +430,10 @@ if (heroArt && heroSection) {
 
 /* ===== Interactive 3D Tilt & Spotlight pada Kartu Katalog, Cara Pesan & About Band ===== */
 const TILT_SELECTOR = ".service-card, .flow-card, .about-band";
+const IS_FINE_POINTER = window.matchMedia && window.matchMedia("(pointer: fine)").matches;
 let activeTiltCard = null;
+let tiltRaf = 0;
+let pendingTilt = null;
 
 function applyCardTilt(card, clientX, clientY) {
   const r = card.getBoundingClientRect();
@@ -425,34 +455,29 @@ function resetCardTilt(card) {
   card.style.setProperty("--ry", "0deg");
 }
 
-document.addEventListener("mousemove", e => {
-  const card = e.target.closest(TILT_SELECTOR);
-  if (activeTiltCard && activeTiltCard !== card) {
-    resetCardTilt(activeTiltCard);
-  }
-  activeTiltCard = card;
-  if (card) applyCardTilt(card, e.clientX, e.clientY);
-}, { passive: true });
+if (IS_FINE_POINTER) {
+  document.addEventListener("mousemove", e => {
+    const card = e.target.closest(TILT_SELECTOR);
+    if (activeTiltCard && activeTiltCard !== card) {
+      resetCardTilt(activeTiltCard);
+    }
+    activeTiltCard = card;
+    if (!card) return;
+    pendingTilt = { card, x: e.clientX, y: e.clientY };
+    if (!tiltRaf) {
+      tiltRaf = requestAnimationFrame(() => {
+        tiltRaf = 0;
+        if (pendingTilt) applyCardTilt(pendingTilt.card, pendingTilt.x, pendingTilt.y);
+      });
+    }
+  }, { passive: true });
 
-document.addEventListener("mouseleave", () => {
-  if (activeTiltCard) resetCardTilt(activeTiltCard);
-  activeTiltCard = null;
-}, { passive: true });
-
-document.addEventListener("touchmove", e => {
-  if (!e.touches || !e.touches[0]) return;
-  const t = e.touches[0];
-  const el = document.elementFromPoint(t.clientX, t.clientY);
-  const card = el && el.closest ? el.closest(".service-card, .flow-card") : null;
-  if (activeTiltCard && activeTiltCard !== card) resetCardTilt(activeTiltCard);
-  activeTiltCard = card;
-  if (card) applyCardTilt(card, t.clientX, t.clientY);
-}, { passive: true });
-
-document.addEventListener("touchend", () => {
-  if (activeTiltCard) resetCardTilt(activeTiltCard);
-  activeTiltCard = null;
-}, { passive: true });
+  document.addEventListener("mouseleave", () => {
+    if (activeTiltCard) resetCardTilt(activeTiltCard);
+    activeTiltCard = null;
+    pendingTilt = null;
+  }, { passive: true });
+}
 
 /* ===== Animasi siklus progres otomatis pada Langkah 03 (Cara Pesan) ===== */
 const flowTracker = document.getElementById("flowTracker");
