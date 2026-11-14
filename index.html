@@ -9,7 +9,7 @@
   <link rel="icon" href="assets/digivo-logo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
   <div class="cosmos" aria-hidden="true">
@@ -210,8 +210,8 @@
 
   <footer class="site-footer">
     <div class="footer-top"><a class="brand footer-brand" href="#"><img src="assets/digivo-logo.jpg" alt="Logo DIGIVO"></a><p>Banyak kebutuhan, satu tempat.</p><a class="button button-primary" id="footerWhatsapp" href="#"><span>Chat DIGIVO</span><i class="btn-arrow" aria-hidden="true">↗</i></a></div>
-    <div class="footer-bottom"><span>© <span id="year"></span> DIGIVO. Dibuat untuk kebutuhan digital sehari-hari.</span><div><a href="#tentang">Tentang</a><a href="#cara-pesan">Cara pesan</a><a href="#faq">FAQ</a><a href="#privacyNote">Privasi</a></div></div>
-    <p class="privacy-note" id="privacyNote">Informasi layanan dan harga dikonfirmasi sebelum pengerjaan. Jangan kirim kata sandi atau data sensitif melalui formulir pesan.</p>
+    <div class="footer-bottom"><span>© <span id="year"></span> DIGIVO. Dibuat untuk kebutuhan digital sehari-hari.</span><div><a href="#tentang">Tentang</a><a href="#cara-pesan">Cara pesan</a><a href="#faq">FAQ</a><a href="#privacyNote">Privasi</a><a href="#syarat-ketentuan" data-open-tnc>Syarat &amp; Ketentuan</a></div></div>
+    <p class="privacy-note" id="privacyNote">Informasi layanan dan harga dikonfirmasi sebelum pengerjaan. Jangan kirim kata sandi atau data sensitif melalui formulir pesan. Dengan memesan, kamu menyetujui <a class="privacy-link" href="#syarat-ketentuan" data-open-tnc>Syarat &amp; Ketentuan</a> DIGIVO.</p>
   </footer>
 
   <dialog id="serviceDialog" class="service-dialog">
@@ -226,7 +226,98 @@
     <p class="dialog-note">Detail, ketersediaan, dan harga akhir akan dikonfirmasi melalui WhatsApp sebelum pengerjaan.</p>
     <a class="button button-primary button-wide" id="dialogWhatsapp" href="#"><span>Tanya layanan ini via WhatsApp</span><i class="btn-arrow" aria-hidden="true">↗</i></a>
   </dialog>
+  <dialog id="tncDialog" class="service-dialog tnc-dialog" aria-labelledby="tncTitle">
+    <button class="dialog-close" id="tncClose" aria-label="Tutup syarat dan ketentuan">×</button>
+    <div class="tnc-head">
+      <div class="eyebrow">ATURAN MAIN DIGIVO</div>
+      <h2 id="tncTitle">Syarat &amp; Ketentuan</h2>
+      <p>Berlaku untuk penjual, pembeli, dan seluruh transaksi di DIGIVO. Pilih peran di bawah untuk membaca aturan yang relevan.</p>
+      <div class="tnc-tabs" role="tablist" aria-label="Kategori syarat dan ketentuan">
+        <button type="button" class="tnc-tab active" role="tab" id="tncTab-seller" data-tnc-tab="seller" aria-selected="true" aria-controls="tncPanel-seller">Seller (Penjual)</button>
+        <button type="button" class="tnc-tab" role="tab" id="tncTab-customer" data-tnc-tab="customer" aria-selected="false" aria-controls="tncPanel-customer">Customer (Pembeli)</button>
+        <button type="button" class="tnc-tab" role="tab" id="tncTab-umum" data-tnc-tab="umum" aria-selected="false" aria-controls="tncPanel-umum">Ketentuan umum</button>
+      </div>
+    </div>
+    <div class="tnc-body">
+      <div class="tnc-panel active" role="tabpanel" id="tncPanel-seller" aria-labelledby="tncTab-seller">
+        <details class="tnc-group" open><summary><span class="tnc-letter">A</span><span class="tnc-name">Tanggung jawab penjual</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Penjual wajib memberikan informasi produk atau layanan secara jujur dan transparan.</li><li>Penjual wajib memastikan layanan sesuai dengan deskripsi katalog.</li><li>Penjual harus memberikan pelayanan yang sopan, profesional, dan responsif.</li><li>Penjual wajib menginformasikan estimasi waktu pengerjaan.</li><li>Penjual bertanggung jawab atas kualitas pekerjaan yang menjadi tanggung jawabnya.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">B</span><span class="tnc-name">Harga dan pembayaran</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Penjual dilarang mengubah harga secara sepihak setelah kesepakatan.</li><li>Setiap perubahan harga wajib dikonfirmasikan kepada pembeli.</li><li>Biaya tambahan harus diinformasikan sebelum pengerjaan.</li><li>Penjual dilarang meminta pembayaran di luar kesepakatan.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">C</span><span class="tnc-name">Pengerjaan pesanan</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Penjual wajib mengerjakan pesanan sesuai kesepakatan.</li><li>Penjual wajib memberikan informasi apabila terjadi keterlambatan.</li><li>Penjual dilarang menggunakan karya pihak lain tanpa izin.</li><li>Penjual wajib menjaga kerahasiaan data dan file pembeli.</li><li>Penjual wajib memberikan revisi apabila hasil tidak sesuai kesepakatan awal.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">D</span><span class="tnc-name">Larangan penjual</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Melakukan penipuan atau manipulasi transaksi.</li><li>Memberikan informasi palsu kepada pembeli.</li><li>Menyalahgunakan data pribadi pelanggan.</li><li>Mengabaikan pesanan tanpa alasan yang jelas.</li><li>Menyalahgunakan nama dan identitas DIGIVO.</li><li>Melakukan tindakan yang merugikan reputasi DIGIVO.</li><li>Dilarang memaksa orang untuk membeli.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">E</span><span class="tnc-name">Sanksi penjual</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <p class="tnc-intro">Pelanggaran terhadap ketentuan dapat dikenakan:</p>
+          <ol><li>Teguran lisan atau tertulis.</li><li>Peringatan resmi.</li><li>Pembatasan akses katalog atau pesanan.</li><li>Pemberhentian sementara.</li><li>Pemberhentian sebagai bagian dari DIGIVO untuk pelanggaran berat.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">F</span><span class="tnc-name">Kewajiban profesional</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Menjaga komunikasi dengan pembeli.</li><li>Menghormati kesepakatan yang telah dibuat.</li><li>Tidak menyebarkan informasi internal DIGIVO tanpa izin.</li><li>Menjaga nama baik dan kepercayaan pelanggan.</li></ol>
+        </div></details>
+        <p class="tnc-closing">Dengan menjadi bagian dari DIGIVO, penjual dianggap telah membaca, memahami, dan menyetujui seluruh ketentuan yang berlaku.</p>
+      </div>
+      <div class="tnc-panel" role="tabpanel" id="tncPanel-customer" aria-labelledby="tncTab-customer">
+        <details class="tnc-group" open><summary><span class="tnc-letter">A</span><span class="tnc-name">Ketentuan pemesanan</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Pembeli wajib memberikan informasi pesanan secara jelas dan benar.</li><li>Pembeli wajib menjelaskan kebutuhan layanan yang diinginkan.</li><li>Pembeli harus memastikan spesifikasi pesanan sebelum menyetujui pengerjaan.</li><li>Pembeli wajib membaca deskripsi layanan sebelum melakukan pemesanan.</li><li>Pembeli bertanggung jawab atas informasi dan file yang diberikan kepada penjual.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">B</span><span class="tnc-name">Pembayaran</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Pembeli wajib melakukan pembayaran sesuai kesepakatan.</li><li>Pembeli wajib mengirimkan bukti pembayaran apabila diminta.</li><li>Pembeli dilarang menggunakan bukti pembayaran palsu.</li><li>Pembeli wajib mengonfirmasi apabila mengalami kendala pembayaran.</li><li>Pembayaran yang telah dilakukan mengikuti kebijakan refund DIGIVO.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">C</span><span class="tnc-name">Revisi dan pembatalan</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Pembeli berhak mengajukan revisi apabila hasil tidak sesuai kesepakatan awal.</li><li>Revisi hanya berlaku untuk ruang lingkup pekerjaan yang telah disepakati.</li><li>Permintaan tambahan di luar kesepakatan dapat dikenakan biaya tambahan.</li><li>Pembatalan pesanan harus dikomunikasikan kepada penjual.</li><li>Pengembalian dana dipertimbangkan berdasarkan status pengerjaan dan penyebab pembatalan.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">D</span><span class="tnc-name">Larangan pembeli</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Melakukan penipuan atau memberikan bukti pembayaran palsu.</li><li>Memberikan informasi yang sengaja menyesatkan.</li><li>Menggunakan bahasa kasar, ancaman, atau pelecehan kepada penjual.</li><li>Menyebarkan data pribadi penjual tanpa izin.</li><li>Melakukan pemesanan palsu.</li><li>Sengaja menghambat proses transaksi.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">E</span><span class="tnc-name">Hak pembeli</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Mendapatkan informasi layanan secara transparan.</li><li>Mendapatkan informasi harga sebelum menyetujui pesanan.</li><li>Mendapatkan hasil sesuai kesepakatan.</li><li>Mendapatkan informasi mengenai progres pengerjaan.</li><li>Mengajukan komplain apabila terjadi masalah.</li><li>Mendapatkan perlindungan atas data pribadi sesuai kebijakan DIGIVO.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">F</span><span class="tnc-name">Sanksi pembeli</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <p class="tnc-intro">Pelanggaran terhadap ketentuan dapat dikenakan:</p>
+          <ol><li>Teguran dari pihak DIGIVO.</li><li>Penolakan pesanan.</li><li>Pembatalan transaksi sesuai kondisi.</li><li>Pembatasan akses layanan.</li><li>Pemblokiran pelanggan untuk pelanggaran berat.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">G</span><span class="tnc-name">Ketentuan file dan materi</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Pembeli wajib memastikan file atau materi yang diberikan dapat dibuka dan digunakan.</li><li>Pembeli bertanggung jawab atas keaslian serta hak penggunaan file yang diberikan.</li><li>Pembeli wajib memberikan referensi atau arahan yang jelas apabila diperlukan.</li><li>Pembeli dilarang memberikan materi yang melanggar hukum, mengandung malware, atau membahayakan sistem penjual.</li><li>Keterlambatan pemberian materi dari pembeli dapat memengaruhi estimasi waktu pengerjaan.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">H</span><span class="tnc-name">Ketentuan revisi dan hasil pekerjaan</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Pembeli wajib memeriksa hasil pekerjaan setelah diterima.</li><li>Pembeli wajib menyampaikan permintaan revisi secara jelas dan terperinci.</li><li>Pembeli tidak diperbolehkan meminta perubahan di luar kesepakatan awal dengan mengatasnamakan revisi.</li><li>Pembeli wajib menghormati batas revisi yang telah ditentukan pada masing-masing layanan.</li><li>Pembeli tidak diperbolehkan mengklaim hasil pekerjaan sebagai miliknya apabila terdapat ketentuan lisensi atau atribusi yang harus dipenuhi.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">I</span><span class="tnc-name">Larangan penyalahgunaan layanan</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Pembeli dilarang menggunakan layanan DIGIVO untuk kegiatan ilegal.</li><li>Pembeli dilarang meminta penjual melakukan tindakan yang melanggar hukum atau merugikan pihak lain.</li><li>Pembeli dilarang menyalahgunakan hasil pekerjaan untuk penipuan, pemalsuan, atau tindakan merugikan.</li><li>Pembeli dilarang menyebarkan hasil pekerjaan yang telah dimodifikasi dengan tujuan merugikan penjual atau DIGIVO.</li><li>DIGIVO berhak menolak permintaan layanan yang dianggap tidak sesuai dengan kebijakan.</li></ol>
+        </div></details>
+      </div>
+      <div class="tnc-panel" role="tabpanel" id="tncPanel-umum" aria-labelledby="tncTab-umum">
+        <details class="tnc-group" open><summary><span class="tnc-letter">A</span><span class="tnc-name">Kesepakatan transaksi</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Kesepakatan transaksi dianggap berlaku setelah penjual dan pembeli menyetujui detail pesanan.</li><li>Kesepakatan mencakup jenis layanan, harga, metode pembayaran, estimasi waktu, serta ketentuan tambahan apabila ada.</li><li>Perubahan kesepakatan hanya dapat dilakukan dengan persetujuan kedua belah pihak.</li><li>Komunikasi dan kesepakatan melalui WhatsApp atau media komunikasi resmi DIGIVO dapat dijadikan acuan penyelesaian transaksi.</li><li>Kedua pihak wajib menyimpan bukti transaksi apabila diperlukan.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">B</span><span class="tnc-name">Kebijakan refund dan pembatalan</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Pengajuan refund harus disertai alasan yang jelas.</li><li>Refund dapat dipertimbangkan apabila penjual gagal menyelesaikan pesanan karena kesalahan atau kelalaiannya.</li><li>Refund tidak otomatis diberikan apabila pembeli membatalkan pesanan setelah pengerjaan dimulai.</li><li>Besaran pengembalian dana mempertimbangkan progres pengerjaan, biaya yang telah dikeluarkan, dan kesepakatan kedua belah pihak.</li><li>Apabila terjadi kesalahan dari pihak penjual, DIGIVO dapat membantu memfasilitasi penyelesaian dan pengembalian dana sesuai kondisi transaksi.</li><li>Setiap keputusan refund harus dikomunikasikan secara transparan kepada pihak terkait.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">C</span><span class="tnc-name">Keamanan dan privasi data</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Setiap pihak wajib menjaga kerahasiaan informasi pribadi yang diperoleh selama transaksi.</li><li>Data pelanggan hanya boleh digunakan untuk keperluan pelayanan dan penyelesaian pesanan.</li><li>Dilarang menyebarkan nomor telepon, alamat, dokumen, foto, maupun informasi pribadi tanpa izin.</li><li>Setiap pihak wajib menjaga keamanan file dan informasi yang diterima.</li><li>DIGIVO berupaya menjaga keamanan informasi pelanggan sesuai kebijakan privasi yang berlaku.</li><li>Data yang sudah tidak diperlukan untuk keperluan transaksi wajib dikelola atau dihapus sesuai kebijakan penyimpanan data DIGIVO.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">D</span><span class="tnc-name">Ketentuan penyelesaian masalah</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Setiap permasalahan transaksi wajib diselesaikan terlebih dahulu melalui komunikasi yang baik.</li><li>Apabila penjual dan pembeli tidak menemukan kesepakatan, DIGIVO dapat membantu menjadi pihak penengah.</li><li>Kedua pihak wajib memberikan informasi dan bukti yang relevan selama proses penyelesaian masalah.</li><li>DIGIVO berhak mengambil tindakan berdasarkan bukti, kesepakatan, dan ketentuan yang berlaku.</li><li>Keputusan penyelesaian harus mempertimbangkan keadilan bagi kedua belah pihak.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">E</span><span class="tnc-name">Batas tanggung jawab DIGIVO</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>DIGIVO bertindak sesuai peran yang telah ditetapkan dalam setiap transaksi.</li><li>Tanggung jawab atas kualitas pekerjaan berada pada pihak yang mengerjakan layanan tersebut.</li><li>DIGIVO tidak bertanggung jawab atas kerugian yang timbul akibat informasi palsu atau kelalaian pihak yang terlibat.</li><li>DIGIVO berhak melakukan pemeriksaan terhadap laporan pelanggaran atau permasalahan transaksi.</li><li>DIGIVO tidak menjamin layanan pihak ketiga yang berada di luar kendali DIGIVO.</li><li>Ketentuan ini tidak menghapus tanggung jawab DIGIVO atas kewajiban yang memang menjadi tanggung jawabnya.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">F</span><span class="tnc-name">Keadaan di luar kendali (Force Majeure)</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>Pihak terkait dapat diberikan pertimbangan apabila terjadi keadaan di luar kendali yang menghambat transaksi.</li><li>Keadaan tersebut dapat berupa gangguan internet, pemadaman listrik, kerusakan perangkat, bencana alam, atau gangguan layanan pihak ketiga.</li><li>Pihak yang mengalami kendala wajib memberikan pemberitahuan kepada pihak lainnya.</li><li>Penyelesaian pesanan akan disesuaikan dengan kondisi dan kesepakatan bersama.</li></ol>
+        </div></details>
+        <details class="tnc-group"><summary><span class="tnc-letter">G</span><span class="tnc-name">Ketentuan perubahan aturan</span><i aria-hidden="true">＋</i></summary><div class="tnc-content">
+          <ol><li>DIGIVO berhak mengubah, menambahkan, atau memperbarui syarat dan ketentuan.</li><li>Setiap perubahan akan diinformasikan melalui media komunikasi resmi DIGIVO.</li><li>Perubahan aturan berlaku sejak tanggal yang ditentukan dalam pemberitahuan.</li><li>Transaksi yang telah disepakati sebelumnya tetap mengacu pada kesepakatan awal, kecuali kedua pihak menyetujui perubahan.</li></ol>
+        </div></details>
+      </div>
+    </div>
+    <div class="tnc-foot"><span>Pertanyaan soal aturan? Tanyakan langsung ke tim DIGIVO.</span><a class="button button-primary" id="tncWhatsapp" href="#"><span>Tanya via WhatsApp</span><i class="btn-arrow" aria-hidden="true">↗</i></a></div>
+  </dialog>
   <script src="cosmos.js?v=6"></script>
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>

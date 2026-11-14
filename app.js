@@ -1,5 +1,5 @@
-// DIGIVO frontend prototype. Replace this placeholder with the official business WhatsApp number before launch.
-const WHATSAPP_NUMBER = "6289519497188";
+// DIGIVO frontend prototype. Nomor WhatsApp bisnis resmi DIGIVO: 0878-1165-4571.
+const WHATSAPP_NUMBER = "6287811654571";
 const svg = inner => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
 const ICONS = {
   // Katalog
@@ -102,7 +102,7 @@ function whatsappUrl(message) {
 
 function setWhatsAppLinks() {
   const general = "Halo DIGIVO, saya ingin bertanya tentang layanan yang tersedia.";
-  ["emptyWhatsapp", "customRequest", "aboutWhatsapp", "footerWhatsapp", "flowWhatsapp"].forEach(id => {
+  ["emptyWhatsapp", "customRequest", "aboutWhatsapp", "footerWhatsapp", "flowWhatsapp", "tncWhatsapp"].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
       el.href = whatsappUrl(general);
@@ -401,6 +401,41 @@ document.addEventListener("keydown", e => {
     searchInput.focus();
   }
 });
+
+/* ===== Syarat & Ketentuan ===== */
+const tncDialog = document.getElementById("tncDialog");
+function openTnc() {
+  if (!tncDialog) return;
+  if (typeof tncDialog.showModal === "function") { if (!tncDialog.open) tncDialog.showModal(); }
+  else tncDialog.setAttribute("open", "");
+  const body = tncDialog.querySelector(".tnc-body");
+  if (body) body.scrollTop = 0;
+}
+function setTncTab(id) {
+  tncDialog.querySelectorAll(".tnc-tab").forEach(tab => {
+    const on = tab.dataset.tncTab === id;
+    tab.classList.toggle("active", on);
+    tab.setAttribute("aria-selected", String(on));
+  });
+  tncDialog.querySelectorAll(".tnc-panel").forEach(panel => {
+    panel.classList.toggle("active", panel.id === `tncPanel-${id}`);
+  });
+  const body = tncDialog.querySelector(".tnc-body");
+  if (body) body.scrollTop = 0;
+}
+if (tncDialog) {
+  document.querySelectorAll("[data-open-tnc]").forEach(el => el.addEventListener("click", e => {
+    e.preventDefault();
+    openTnc();
+  }));
+  tncDialog.querySelectorAll(".tnc-tab").forEach(tab => tab.addEventListener("click", () => setTncTab(tab.dataset.tncTab)));
+  document.getElementById("tncClose").addEventListener("click", () => tncDialog.close());
+  tncDialog.addEventListener("click", e => { if (e.target === tncDialog) tncDialog.close(); });
+  tncDialog.addEventListener("close", () => {
+    if (location.hash === "#syarat-ketentuan") history.replaceState(null, "", location.pathname + location.search);
+  });
+  if (location.hash === "#syarat-ketentuan") openTnc();
+}
 
 setWhatsAppLinks();
 renderServices();
