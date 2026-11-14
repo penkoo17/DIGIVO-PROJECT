@@ -104,11 +104,7 @@ function whatsappUrl(message) {
 
 function setWhatsAppLinks() {
   const general = "Halo DIGIVO, saya ingin bertanya tentang layanan yang tersedia.";
-<<<<<<< HEAD
   ["emptyWhatsapp", "customRequest", "aboutWhatsapp", "footerWhatsapp", "flowWhatsapp", "tncWhatsapp", "headerWhatsapp", "heroWhatsapp", "dockWhatsapp"].forEach(id => {
-=======
-  ["emptyWhatsapp", "customRequest", "aboutWhatsapp", "footerWhatsapp", "flowWhatsapp", "tncWhatsapp"].forEach(id => {
->>>>>>> 5a3ce3db6d104efb0f1b13062d6208558b29399d
     const el = document.getElementById(id);
     if (el) {
       el.href = whatsappUrl(general);
