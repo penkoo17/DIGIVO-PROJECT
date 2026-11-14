@@ -729,13 +729,20 @@ button, a { -webkit-tap-highlight-color: transparent; }
 /* ===== Trust Strip (Praktis, Banyak pilihan, Terarah) ===== */
 .trust-strip {
   position: relative;
+<<<<<<< HEAD
   max-width: 1280px;
   margin-inline: auto;
+=======
+>>>>>>> 5a3ce3db6d104efb0f1b13062d6208558b29399d
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
   counter-reset: trust;
+<<<<<<< HEAD
   padding: 34px max(6vw, 24px) 40px;
+=======
+  padding: 34px max(8vw, 24px) 40px;
+>>>>>>> 5a3ce3db6d104efb0f1b13062d6208558b29399d
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.72) 45%, rgba(255, 255, 255, 0.5) 100%);
   border-top: 1.5px solid var(--line);
 }
@@ -1619,6 +1626,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   padding-bottom: 24px;
   border-bottom: 1.5px solid var(--line);
 }
+<<<<<<< HEAD
 .footer-brand img { width: 136px; height: 38px; }
 .button-channel {
   padding-left: 8px;
@@ -1632,6 +1640,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
   color: #15803d;
   box-shadow: 0 8px 20px rgba(37, 211, 102, 0.16);
 }
+=======
+.footer-brand img { width: 142px; height: 46px; }
+.button-channel { padding-left: 8px; gap: 10px; }
+>>>>>>> 5a3ce3db6d104efb0f1b13062d6208558b29399d
 .channel-icon {
   position: relative;
   display: grid;
