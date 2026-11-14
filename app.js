@@ -269,14 +269,18 @@ revealGroup(document.querySelectorAll(".flow-card"), 0.09);
 revealGroup(document.querySelectorAll(".perk-pill"), 0.07);
 revealGroup(document.querySelectorAll(".faq-list details"), 0.06);
 
-/* ===== Header, Scroll Spy & Mobile Dock ===== */
+/* ===== Header Collapsible Pill, Liquid Water Tap, Scroll Spy & Mobile Dock ===== */
 const header = document.querySelector(".site-header");
+const brandLink = header ? header.querySelector(".brand") : null;
 const progress = document.getElementById("scrollProgress");
 const navLinks = Array.from(document.querySelectorAll(".desktop-nav a[data-nav]"));
 const dockItems = Array.from(document.querySelectorAll(".mobile-dock .dock-item[data-dock]"));
 const spySections = ["layanan", "cara-pesan", "tentang", "faq"]
   .map(id => document.getElementById(id))
   .filter(Boolean);
+
+let manualExpand = false;
+let expandScrollY = 0;
 
 function updateActiveNav() {
   const y = window.scrollY + 180;
@@ -290,11 +294,55 @@ function updateActiveNav() {
 }
 
 function onScroll() {
+  const sy = window.scrollY || 0;
   const max = document.documentElement.scrollHeight - window.innerHeight;
-  progress.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
-  header.classList.toggle("scrolled", window.scrollY > 18);
+  progress.style.transform = `scaleX(${max > 0 ? sy / max : 0})`;
+  header.classList.toggle("scrolled", sy > 18);
+
+  if (sy <= 65) {
+    manualExpand = false;
+    header.classList.remove("is-collapsed");
+  } else {
+    if (manualExpand && Math.abs(sy - expandScrollY) > 150) {
+      manualExpand = false;
+    }
+    if (!manualExpand && !(desktopNav && desktopNav.classList.contains("open"))) {
+      header.classList.add("is-collapsed");
+    }
+  }
   updateActiveNav();
 }
+
+if (brandLink && header) {
+  brandLink.addEventListener("click", e => {
+    if (header.classList.contains("is-collapsed")) {
+      e.preventDefault();
+      manualExpand = true;
+      expandScrollY = window.scrollY || 0;
+      header.classList.remove("is-collapsed");
+    } else if (window.scrollY > 40) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  });
+}
+
+// Efek riak air (water ripple) tipis saat memilih menu navbar PC & mobile
+function triggerWaterTap(el, e) {
+  const r = el.getBoundingClientRect();
+  const x = e && e.clientX ? e.clientX - r.left : r.width / 2;
+  const y = e && e.clientY ? e.clientY - r.top : r.height / 2;
+  el.style.setProperty("--wx", `${x.toFixed(1)}px`);
+  el.style.setProperty("--wy", `${y.toFixed(1)}px`);
+  el.classList.remove("water-tap");
+  void el.offsetWidth;
+  el.classList.add("water-tap");
+  setTimeout(() => el.classList.remove("water-tap"), 620);
+}
+[...navLinks, ...dockItems].forEach(item => {
+  item.addEventListener("click", e => triggerWaterTap(item, e));
+});
+
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 

@@ -6,10 +6,10 @@
   <meta name="theme-color" content="#1768e8">
   <meta name="description" content="DIGIVO menyediakan jasa teknologi, kreatif, dokumen, dan kebutuhan digital dalam satu tempat.">
   <title>DIGIVO — Banyak kebutuhan, satu tempat</title>
-  <link rel="icon" href="assets/digivo-logo.jpg">
+  <link rel="icon" href="assets/digivo-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
   <div class="cosmos" aria-hidden="true">
@@ -23,7 +23,7 @@
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <header class="site-header" id="siteHeader">
-    <a class="brand" href="#" aria-label="DIGIVO beranda"><img src="assets/digivo-logo.jpg" alt="Logo DIGIVO"></a>
+    <a class="brand" href="#" aria-label="DIGIVO beranda"><img src="assets/digivo-logo.png" alt="Logo DIGIVO"></a>
     <nav class="desktop-nav" aria-label="Navigasi utama">
       <a href="#layanan" data-nav="layanan">Layanan</a>
       <a href="#cara-pesan" data-nav="cara-pesan">Cara pesan</a>
@@ -31,7 +31,7 @@
       <a href="#faq" data-nav="faq">FAQ</a>
     </nav>
     <div class="header-right">
-      <a class="button button-dark header-cta" id="headerWhatsapp" href="#"><span>Chat WhatsApp</span><i class="btn-arrow" data-icon="whatsapp" aria-hidden="true">↗</i></a>
+      <a class="button button-wa header-cta" id="headerWhatsapp" href="#"><i class="btn-arrow wa-badge" data-icon="whatsapp" aria-hidden="true"></i><span>Chat WhatsApp</span></a>
       <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">
         <span class="menu-bars" aria-hidden="true"><i></i><i></i></span>
       </button>
@@ -46,12 +46,12 @@
         <p class="hero-description">Mulai dari urusan teknologi, tugas dan dokumen, desain kreatif, hingga kebutuhan digital lainnya. Temukan layanan yang kamu butuhkan dan konsultasikan langsung bersama DIGIVO.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#layanan"><span>Jelajahi layanan</span><i class="btn-arrow" aria-hidden="true">↘</i></a>
-          <a class="button button-ghost" id="heroWhatsapp" href="#"><span>Chat WhatsApp</span><i class="btn-arrow" data-icon="whatsapp" aria-hidden="true">→</i></a>
+          <a class="button button-wa" id="heroWhatsapp" href="#"><i class="btn-arrow wa-badge" data-icon="whatsapp" aria-hidden="true"></i><span>Chat WhatsApp</span></a>
         </div>
         <div class="hero-note"><span class="note-dot" aria-hidden="true"></span> Online dan offline · Pesan langsung via WhatsApp</div>
       </div>
       <div class="hero-art" aria-label="Ilustrasi kategori layanan DIGIVO">
-        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-orbit orbit-three"></div>
+        <div class="hero-halo" aria-hidden="true"></div><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-orbit orbit-three"></div>
         <span class="art-spark spark-a" aria-hidden="true">✦</span><span class="art-spark spark-b" aria-hidden="true">✦</span>
         <div class="art-card card-main"><div class="fake-window"><i></i><i></i><i></i></div><div class="screen-symbol">D<span>▶</span></div><div class="screen-lines"><b></b><i></i><i></i></div><div class="screen-tag">DIGITAL, MADE SIMPLE</div></div>
         <div class="float-card float-top"><span class="float-icon blue" data-icon="monitor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><div><b>Tech support</b><small>PC · HP · Web</small></div><span class="float-check">✓</span></div>
@@ -90,8 +90,8 @@
         </div>
       </div>
       <div class="service-grid" id="serviceGrid"></div>
-      <div class="empty-state hidden" id="emptyState"><div class="empty-symbol" data-icon="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div><h3>Belum ketemu?</h3><p>Coba kata kunci lain atau tanyakan kebutuhanmu langsung ke DIGIVO.</p><a class="button button-primary" id="emptyWhatsapp" href="#"><span>Tanya via WhatsApp</span><i class="btn-arrow" aria-hidden="true">↗</i></a></div>
-      <div class="catalog-bottom"><span>Belum menemukan yang kamu cari?</span><a class="text-link" id="customRequest" href="#">Ceritakan kebutuhanmu <span>↗</span></a></div>
+      <div class="empty-state hidden" id="emptyState"><div class="empty-symbol" data-icon="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div><h3>Belum ketemu?</h3><p>Coba kata kunci lain atau tanyakan kebutuhanmu langsung ke DIGIVO.</p><a class="button button-wa" id="emptyWhatsapp" href="#"><i class="btn-arrow wa-badge" data-icon="whatsapp" aria-hidden="true"></i><span>Tanya via WhatsApp</span></a></div>
+      <div class="catalog-bottom"><span>Belum menemukan yang kamu cari?</span><a class="text-link text-link-wa" id="customRequest" href="#"><i class="wa-inline-icon" data-icon="whatsapp" aria-hidden="true"></i>Ceritakan kebutuhanmu <span>↗</span></a></div>
     </section>
 
     <section class="how section" id="cara-pesan">
@@ -182,7 +182,7 @@
           </div>
           <div class="flow-widget flow-cta-box">
             <div class="cta-guarantee"><span class="guarantee-dot">✓</span> Aman, jelas, tanpa biaya tersembunyi</div>
-            <a class="button button-primary flow-cta-btn" id="flowWhatsapp" href="#"><span>Mulai Chat</span><i class="btn-arrow" aria-hidden="true">↗</i></a>
+            <a class="button button-wa flow-cta-btn" id="flowWhatsapp" href="#"><i class="btn-arrow wa-badge" data-icon="whatsapp" aria-hidden="true"></i><span>Mulai Chat</span></a>
           </div>
         </article>
       </div>
@@ -198,7 +198,7 @@
     <section class="about-band" id="tentang">
       <div class="about-mark">D<span>▶</span></div>
       <div><div class="eyebrow light-eyebrow">KENALAN DENGAN DIGIVO</div><h2>Satu tempat untuk<br>berbagai kebutuhan.</h2><p>DIGIVO hadir untuk membuat berbagai kebutuhan teknologi dan kreativitas terasa lebih mudah dijangkau. Kami percaya, setiap kebutuhan punya solusi dan setiap ide punya ruang untuk berkembang.</p></div>
-      <a class="button button-light" id="aboutWhatsapp" href="#"><span>Tanya dulu aja</span><i class="btn-arrow" aria-hidden="true">↗</i></a>
+      <a class="button button-wa" id="aboutWhatsapp" href="#"><i class="btn-arrow wa-badge" data-icon="whatsapp" aria-hidden="true"></i><span>Tanya dulu aja</span></a>
     </section>
 
     <section class="faq section" id="faq">
@@ -213,7 +213,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-top"><a class="brand footer-brand" href="#"><img src="assets/digivo-logo.jpg" alt="Logo DIGIVO"></a><p>Banyak kebutuhan, satu tempat.</p><a class="button button-ghost button-channel" id="footerChannel" href="https://whatsapp.com/channel/0029VbD9GKX90x33cqBVp213" target="_blank" rel="noopener noreferrer" aria-label="Ikuti saluran WhatsApp DIGIVO"><span class="channel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span><span>Ikuti Saluran WhatsApp</span><i class="btn-arrow" aria-hidden="true">↗</i></a><a class="button button-primary" id="footerWhatsapp" href="#"><span>Chat DIGIVO</span><i class="btn-arrow" aria-hidden="true">↗</i></a></div>
+    <div class="footer-top"><a class="brand footer-brand" href="#"><img src="assets/digivo-logo.png" alt="Logo DIGIVO"></a><p>Banyak kebutuhan, satu tempat.</p><a class="button button-ghost button-channel" id="footerChannel" href="https://whatsapp.com/channel/0029VbD9GKX90x33cqBVp213" target="_blank" rel="noopener noreferrer" aria-label="Ikuti saluran WhatsApp DIGIVO"><span class="channel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span><span>Ikuti Saluran WhatsApp</span><i class="btn-arrow" aria-hidden="true">↗</i></a><a class="button button-wa" id="footerWhatsapp" href="#"><i class="btn-arrow wa-badge" data-icon="whatsapp" aria-hidden="true"></i><span>Chat DIGIVO</span></a></div>
     <div class="footer-bottom"><span>© <span id="year"></span> DIGIVO. Dibuat untuk kebutuhan digital sehari-hari.</span><div><a href="#tentang">Tentang</a><a href="#cara-pesan">Cara pesan</a><a href="#faq">FAQ</a><a href="#privacyNote">Privasi</a><a href="#syarat-ketentuan" data-open-tnc>Syarat &amp; Ketentuan</a></div></div>
     <p class="privacy-note" id="privacyNote">Informasi layanan dan harga dikonfirmasi sebelum pengerjaan. Jangan kirim kata sandi atau data sensitif melalui formulir pesan. Dengan memesan, kamu menyetujui <a class="privacy-link" href="#syarat-ketentuan" data-open-tnc>Syarat &amp; Ketentuan</a> DIGIVO.</p>
   </footer>
@@ -247,7 +247,7 @@
     <h3>Yang perlu kamu tahu</h3>
     <ul id="dialogIncludes"></ul>
     <p class="dialog-note">Detail, ketersediaan, dan harga akhir akan dikonfirmasi melalui WhatsApp sebelum pengerjaan.</p>
-    <a class="button button-primary button-wide" id="dialogWhatsapp" href="#"><span>Tanya layanan ini via WhatsApp</span><i class="btn-arrow" aria-hidden="true">↗</i></a>
+    <a class="button button-wa button-wide" id="dialogWhatsapp" href="#"><i class="btn-arrow wa-badge" data-icon="whatsapp" aria-hidden="true"></i><span>Tanya layanan ini via WhatsApp</span></a>
   </dialog>
   <dialog id="tncDialog" class="service-dialog tnc-dialog" aria-labelledby="tncTitle">
     <button class="dialog-close" id="tncClose" aria-label="Tutup syarat dan ketentuan">×</button>
@@ -338,9 +338,9 @@
         </div></details>
       </div>
     </div>
-    <div class="tnc-foot"><span>Pertanyaan soal aturan? Tanyakan langsung ke tim DIGIVO.</span><a class="button button-primary" id="tncWhatsapp" href="#"><span>Tanya via WhatsApp</span><i class="btn-arrow" aria-hidden="true">↗</i></a></div>
+    <div class="tnc-foot"><span>Pertanyaan soal aturan? Tanyakan langsung ke tim DIGIVO.</span><a class="button button-wa" id="tncWhatsapp" href="#"><i class="btn-arrow wa-badge" data-icon="whatsapp" aria-hidden="true"></i><span>Tanya via WhatsApp</span></a></div>
   </dialog>
   <script src="cosmos.js?v=6"></script>
-  <script src="app.js?v=12"></script>
+  <script src="app.js?v=13"></script>
 </body>
 </html>
